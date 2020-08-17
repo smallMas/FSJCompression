@@ -228,6 +228,13 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     });
 }
 
++ (void)compressVideoWithVideoUrl:(NSURL *)videoUrl
+                        outputURL:(NSURL *)outputURL
+                    progressBlock:(FSJCompressionProgressBlock)progressBlock
+                 compressComplete:(FSJCompressionCompleteBlock)compressComplete {
+    [self compressVideoWithVideoUrl:videoUrl outputURL:outputURL withBiteRate:nil withFrameRate:nil withVideoWidth:nil withVideoHeight:nil progressBlock:progressBlock compressComplete:compressComplete];
+}
+
 + (NSDictionary *)videoCompressSettingsWithBitRate:(NSInteger)biteRate withFrameRate:(NSInteger)frameRate withWidth:(NSInteger)width WithHeight:(NSInteger)height withOriginalWidth:(NSInteger)originalWidth withOriginalHeight:(NSInteger)originalHeight{
     /*
      * AVVideoAverageBitRateKey： 比特率（码率）每秒传输的文件大小 kbps

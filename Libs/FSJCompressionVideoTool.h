@@ -34,6 +34,18 @@ NS_ASSUME_NONNULL_BEGIN
                     progressBlock:(FSJCompressionProgressBlock)progressBlock
                  compressComplete:(FSJCompressionCompleteBlock)compressComplete;
 
+/*
+* 自定义视频压缩 默认1500kbps 默认30fps 默认960 默认540
+* videoUrl 原视频url路径 必传
+* outputURL 输出url路径，不传默认/Library/Caches/videoTest.mp4
+* progressBlock 压缩进度回调
+* compressComplete 压缩后的视频信息回调 (id responseObjc) 可自行打印查看
+**/
++ (void)compressVideoWithVideoUrl:(NSURL *)videoUrl
+                        outputURL:(NSURL *)outputURL
+                           progressBlock:(FSJCompressionProgressBlock)progressBlock
+                        compressComplete:(FSJCompressionCompleteBlock)compressComplete;
+
 @end
 
 NS_ASSUME_NONNULL_END
