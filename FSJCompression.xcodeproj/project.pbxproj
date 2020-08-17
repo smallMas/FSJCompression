@@ -1,0 +1,827 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08C309F4FCDF5CC9A89D717B /* Pods_FSJCompression_FSJCompressionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BABA5E6E97C4C2F80135828B /* Pods_FSJCompression_FSJCompressionUITests.framework */; };
+		2D5F217E2D9A2610BF6687CE /* Pods_FSJCompression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09D39EE4987B42A3FABF3375 /* Pods_FSJCompression.framework */; };
+		80322DF8F225E3BE83A65823 /* Pods_FSJCompressionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C99E546BFCC0E837B79E506 /* Pods_FSJCompressionTests.framework */; };
+		E937791224EA26FA00107537 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E937791124EA26FA00107537 /* AppDelegate.m */; };
+		E937791824EA26FA00107537 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E937791724EA26FA00107537 /* ViewController.m */; };
+		E937791B24EA26FA00107537 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E937791924EA26FA00107537 /* Main.storyboard */; };
+		E937791E24EA26FA00107537 /* FSJCompression.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E937791C24EA26FA00107537 /* FSJCompression.xcdatamodeld */; };
+		E937792024EA26FD00107537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E937791F24EA26FD00107537 /* Assets.xcassets */; };
+		E937792324EA26FD00107537 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E937792124EA26FD00107537 /* LaunchScreen.storyboard */; };
+		E937792624EA26FD00107537 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E937792524EA26FD00107537 /* main.m */; };
+		E937793024EA26FD00107537 /* FSJCompressionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E937792F24EA26FD00107537 /* FSJCompressionTests.m */; };
+		E937793B24EA26FD00107537 /* FSJCompressionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E937793A24EA26FD00107537 /* FSJCompressionUITests.m */; };
+		E937794C24EA282700107537 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E937794924EA282600107537 /* LICENSE */; };
+		E937794D24EA282700107537 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E937794A24EA282600107537 /* README.md */; };
+		E937795224EA284400107537 /* FSJCompressionVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E937795124EA284400107537 /* FSJCompressionVideoTool.m */; };
+		E937795724EA294600107537 /* FSJMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E937795624EA294600107537 /* FSJMainViewController.m */; };
+		E937795D24EA2AEE00107537 /* FSVideoImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E937795C24EA2AEE00107537 /* FSVideoImageTool.m */; };
+		E937796024EA2B3200107537 /* FSPathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E937795F24EA2B3200107537 /* FSPathTool.m */; };
+		E937796224EA2D0500107537 /* FSJCompression.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E937796124EA2D0500107537 /* FSJCompression.podspec */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E937792C24EA26FD00107537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E937790524EA26FA00107537 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E937790C24EA26FA00107537;
+			remoteInfo = FSJCompression;
+		};
+		E937793724EA26FD00107537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E937790524EA26FA00107537 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E937790C24EA26FA00107537;
+			remoteInfo = FSJCompression;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01A49A738AD35FAB6C55A804 /* Pods-FSJCompressionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJCompressionTests.release.xcconfig"; path = "Target Support Files/Pods-FSJCompressionTests/Pods-FSJCompressionTests.release.xcconfig"; sourceTree = "<group>"; };
+		09D39EE4987B42A3FABF3375 /* Pods_FSJCompression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSJCompression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C99E546BFCC0E837B79E506 /* Pods_FSJCompressionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSJCompressionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2385A1B4E1233FF137EE0BB6 /* Pods-FSJCompression-FSJCompressionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJCompression-FSJCompressionUITests.release.xcconfig"; path = "Target Support Files/Pods-FSJCompression-FSJCompressionUITests/Pods-FSJCompression-FSJCompressionUITests.release.xcconfig"; sourceTree = "<group>"; };
+		60D55E6B3FC07D221C1BC910 /* Pods-FSJCompression.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJCompression.release.xcconfig"; path = "Target Support Files/Pods-FSJCompression/Pods-FSJCompression.release.xcconfig"; sourceTree = "<group>"; };
+		6C81677887A7847AF7D0426A /* Pods-FSJCompression-FSJCompressionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJCompression-FSJCompressionUITests.debug.xcconfig"; path = "Target Support Files/Pods-FSJCompression-FSJCompressionUITests/Pods-FSJCompression-FSJCompressionUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9692FDFD13812EB9BE44FF0 /* Pods-FSJCompression.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJCompression.debug.xcconfig"; path = "Target Support Files/Pods-FSJCompression/Pods-FSJCompression.debug.xcconfig"; sourceTree = "<group>"; };
+		BABA5E6E97C4C2F80135828B /* Pods_FSJCompression_FSJCompressionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSJCompression_FSJCompressionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEEA25E88C9FD29800FC4830 /* Pods-FSJCompressionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSJCompressionTests.debug.xcconfig"; path = "Target Support Files/Pods-FSJCompressionTests/Pods-FSJCompressionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E937790D24EA26FA00107537 /* FSJCompression.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FSJCompression.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E937791024EA26FA00107537 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E937791124EA26FA00107537 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E937791624EA26FA00107537 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E937791724EA26FA00107537 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E937791A24EA26FA00107537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E937791D24EA26FA00107537 /* FSJCompression.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FSJCompression.xcdatamodel; sourceTree = "<group>"; };
+		E937791F24EA26FD00107537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E937792224EA26FD00107537 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E937792424EA26FD00107537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E937792524EA26FD00107537 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E937792B24EA26FD00107537 /* FSJCompressionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSJCompressionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E937792F24EA26FD00107537 /* FSJCompressionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSJCompressionTests.m; sourceTree = "<group>"; };
+		E937793124EA26FD00107537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E937793624EA26FD00107537 /* FSJCompressionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FSJCompressionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E937793A24EA26FD00107537 /* FSJCompressionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSJCompressionUITests.m; sourceTree = "<group>"; };
+		E937793C24EA26FD00107537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E937794924EA282600107537 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		E937794A24EA282600107537 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		E937795024EA284400107537 /* FSJCompressionVideoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSJCompressionVideoTool.h; sourceTree = "<group>"; };
+		E937795124EA284400107537 /* FSJCompressionVideoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSJCompressionVideoTool.m; sourceTree = "<group>"; };
+		E937795324EA286F00107537 /* FSJCompressionBlockHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSJCompressionBlockHeader.h; sourceTree = "<group>"; };
+		E937795524EA294600107537 /* FSJMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSJMainViewController.h; sourceTree = "<group>"; };
+		E937795624EA294600107537 /* FSJMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSJMainViewController.m; sourceTree = "<group>"; };
+		E937795824EA299B00107537 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		E937795924EA2A6F00107537 /* FSJCompression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSJCompression.h; sourceTree = "<group>"; };
+		E937795B24EA2AEE00107537 /* FSVideoImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVideoImageTool.h; sourceTree = "<group>"; };
+		E937795C24EA2AEE00107537 /* FSVideoImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVideoImageTool.m; sourceTree = "<group>"; };
+		E937795E24EA2B3200107537 /* FSPathTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPathTool.h; sourceTree = "<group>"; };
+		E937795F24EA2B3200107537 /* FSPathTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPathTool.m; sourceTree = "<group>"; };
+		E937796124EA2D0500107537 /* FSJCompression.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = FSJCompression.podspec; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E937790A24EA26FA00107537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D5F217E2D9A2610BF6687CE /* Pods_FSJCompression.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E937792824EA26FD00107537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80322DF8F225E3BE83A65823 /* Pods_FSJCompressionTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E937793324EA26FD00107537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08C309F4FCDF5CC9A89D717B /* Pods_FSJCompression_FSJCompressionUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1EDFB3124F012451EEE6FE99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09D39EE4987B42A3FABF3375 /* Pods_FSJCompression.framework */,
+				BABA5E6E97C4C2F80135828B /* Pods_FSJCompression_FSJCompressionUITests.framework */,
+				1C99E546BFCC0E837B79E506 /* Pods_FSJCompressionTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B14B064C74B790268995DB69 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9692FDFD13812EB9BE44FF0 /* Pods-FSJCompression.debug.xcconfig */,
+				60D55E6B3FC07D221C1BC910 /* Pods-FSJCompression.release.xcconfig */,
+				6C81677887A7847AF7D0426A /* Pods-FSJCompression-FSJCompressionUITests.debug.xcconfig */,
+				2385A1B4E1233FF137EE0BB6 /* Pods-FSJCompression-FSJCompressionUITests.release.xcconfig */,
+				BEEA25E88C9FD29800FC4830 /* Pods-FSJCompressionTests.debug.xcconfig */,
+				01A49A738AD35FAB6C55A804 /* Pods-FSJCompressionTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E937790424EA26FA00107537 = {
+			isa = PBXGroup;
+			children = (
+				E937790F24EA26FA00107537 /* FSJCompression */,
+				E937792E24EA26FD00107537 /* FSJCompressionTests */,
+				E937793924EA26FD00107537 /* FSJCompressionUITests */,
+				E937790E24EA26FA00107537 /* Products */,
+				B14B064C74B790268995DB69 /* Pods */,
+				1EDFB3124F012451EEE6FE99 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E937790E24EA26FA00107537 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E937790D24EA26FA00107537 /* FSJCompression.app */,
+				E937792B24EA26FD00107537 /* FSJCompressionTests.xctest */,
+				E937793624EA26FD00107537 /* FSJCompressionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E937790F24EA26FA00107537 /* FSJCompression */ = {
+			isa = PBXGroup;
+			children = (
+				E937795424EA293500107537 /* Controllers */,
+				E937794F24EA283200107537 /* Libs */,
+				E937794824EA281000107537 /* PodspecMetadata */,
+				E937791024EA26FA00107537 /* AppDelegate.h */,
+				E937791124EA26FA00107537 /* AppDelegate.m */,
+				E937791624EA26FA00107537 /* ViewController.h */,
+				E937791724EA26FA00107537 /* ViewController.m */,
+				E937791924EA26FA00107537 /* Main.storyboard */,
+				E937791F24EA26FD00107537 /* Assets.xcassets */,
+				E937792124EA26FD00107537 /* LaunchScreen.storyboard */,
+				E937792424EA26FD00107537 /* Info.plist */,
+				E937792524EA26FD00107537 /* main.m */,
+				E937791C24EA26FA00107537 /* FSJCompression.xcdatamodeld */,
+				E937795824EA299B00107537 /* PrefixHeader.pch */,
+			);
+			path = FSJCompression;
+			sourceTree = "<group>";
+		};
+		E937792E24EA26FD00107537 /* FSJCompressionTests */ = {
+			isa = PBXGroup;
+			children = (
+				E937792F24EA26FD00107537 /* FSJCompressionTests.m */,
+				E937793124EA26FD00107537 /* Info.plist */,
+			);
+			path = FSJCompressionTests;
+			sourceTree = "<group>";
+		};
+		E937793924EA26FD00107537 /* FSJCompressionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E937793A24EA26FD00107537 /* FSJCompressionUITests.m */,
+				E937793C24EA26FD00107537 /* Info.plist */,
+			);
+			path = FSJCompressionUITests;
+			sourceTree = "<group>";
+		};
+		E937794824EA281000107537 /* PodspecMetadata */ = {
+			isa = PBXGroup;
+			children = (
+				E937796124EA2D0500107537 /* FSJCompression.podspec */,
+				E937794924EA282600107537 /* LICENSE */,
+				E937794A24EA282600107537 /* README.md */,
+			);
+			path = PodspecMetadata;
+			sourceTree = SOURCE_ROOT;
+		};
+		E937794F24EA283200107537 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				E937795024EA284400107537 /* FSJCompressionVideoTool.h */,
+				E937795124EA284400107537 /* FSJCompressionVideoTool.m */,
+				E937795324EA286F00107537 /* FSJCompressionBlockHeader.h */,
+				E937795924EA2A6F00107537 /* FSJCompression.h */,
+			);
+			path = Libs;
+			sourceTree = SOURCE_ROOT;
+		};
+		E937795424EA293500107537 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E937795A24EA2AEE00107537 /* Tools */,
+				E937795524EA294600107537 /* FSJMainViewController.h */,
+				E937795624EA294600107537 /* FSJMainViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E937795A24EA2AEE00107537 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E937795E24EA2B3200107537 /* FSPathTool.h */,
+				E937795F24EA2B3200107537 /* FSPathTool.m */,
+				E937795B24EA2AEE00107537 /* FSVideoImageTool.h */,
+				E937795C24EA2AEE00107537 /* FSVideoImageTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E937790C24EA26FA00107537 /* FSJCompression */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E937793F24EA26FD00107537 /* Build configuration list for PBXNativeTarget "FSJCompression" */;
+			buildPhases = (
+				F98A3AEF840D1438E8A49BA7 /* [CP] Check Pods Manifest.lock */,
+				E937790924EA26FA00107537 /* Sources */,
+				E937790A24EA26FA00107537 /* Frameworks */,
+				E937790B24EA26FA00107537 /* Resources */,
+				B3133AF1599357F5B2D92D73 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FSJCompression;
+			productName = FSJCompression;
+			productReference = E937790D24EA26FA00107537 /* FSJCompression.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E937792A24EA26FD00107537 /* FSJCompressionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E937794224EA26FD00107537 /* Build configuration list for PBXNativeTarget "FSJCompressionTests" */;
+			buildPhases = (
+				D45CD43D38AAA6B334F13655 /* [CP] Check Pods Manifest.lock */,
+				E937792724EA26FD00107537 /* Sources */,
+				E937792824EA26FD00107537 /* Frameworks */,
+				E937792924EA26FD00107537 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E937792D24EA26FD00107537 /* PBXTargetDependency */,
+			);
+			name = FSJCompressionTests;
+			productName = FSJCompressionTests;
+			productReference = E937792B24EA26FD00107537 /* FSJCompressionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E937793524EA26FD00107537 /* FSJCompressionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E937794524EA26FD00107537 /* Build configuration list for PBXNativeTarget "FSJCompressionUITests" */;
+			buildPhases = (
+				95B7BAEAC1D3196AF5C5C1F0 /* [CP] Check Pods Manifest.lock */,
+				E937793224EA26FD00107537 /* Sources */,
+				E937793324EA26FD00107537 /* Frameworks */,
+				E937793424EA26FD00107537 /* Resources */,
+				3A4200822D3A863F08C8C084 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E937793824EA26FD00107537 /* PBXTargetDependency */,
+			);
+			name = FSJCompressionUITests;
+			productName = FSJCompressionUITests;
+			productReference = E937793624EA26FD00107537 /* FSJCompressionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E937790524EA26FA00107537 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "燕来秋";
+				TargetAttributes = {
+					E937790C24EA26FA00107537 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					E937792A24EA26FD00107537 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = E937790C24EA26FA00107537;
+					};
+					E937793524EA26FD00107537 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = E937790C24EA26FA00107537;
+					};
+				};
+			};
+			buildConfigurationList = E937790824EA26FA00107537 /* Build configuration list for PBXProject "FSJCompression" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E937790424EA26FA00107537;
+			productRefGroup = E937790E24EA26FA00107537 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E937790C24EA26FA00107537 /* FSJCompression */,
+				E937792A24EA26FD00107537 /* FSJCompressionTests */,
+				E937793524EA26FD00107537 /* FSJCompressionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E937790B24EA26FA00107537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E937792324EA26FD00107537 /* LaunchScreen.storyboard in Resources */,
+				E937792024EA26FD00107537 /* Assets.xcassets in Resources */,
+				E937794D24EA282700107537 /* README.md in Resources */,
+				E937796224EA2D0500107537 /* FSJCompression.podspec in Resources */,
+				E937794C24EA282700107537 /* LICENSE in Resources */,
+				E937791B24EA26FA00107537 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E937792924EA26FD00107537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E937793424EA26FD00107537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A4200822D3A863F08C8C084 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSJCompression-FSJCompressionUITests/Pods-FSJCompression-FSJCompressionUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSJCompression-FSJCompressionUITests/Pods-FSJCompression-FSJCompressionUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FSJCompression-FSJCompressionUITests/Pods-FSJCompression-FSJCompressionUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95B7BAEAC1D3196AF5C5C1F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FSJCompression-FSJCompressionUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3133AF1599357F5B2D92D73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSJCompression/Pods-FSJCompression-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FSJCompression/Pods-FSJCompression-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FSJCompression/Pods-FSJCompression-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D45CD43D38AAA6B334F13655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FSJCompressionTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F98A3AEF840D1438E8A49BA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FSJCompression-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E937790924EA26FA00107537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E937795224EA284400107537 /* FSJCompressionVideoTool.m in Sources */,
+				E937795724EA294600107537 /* FSJMainViewController.m in Sources */,
+				E937792624EA26FD00107537 /* main.m in Sources */,
+				E937796024EA2B3200107537 /* FSPathTool.m in Sources */,
+				E937795D24EA2AEE00107537 /* FSVideoImageTool.m in Sources */,
+				E937791E24EA26FA00107537 /* FSJCompression.xcdatamodeld in Sources */,
+				E937791824EA26FA00107537 /* ViewController.m in Sources */,
+				E937791224EA26FA00107537 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E937792724EA26FD00107537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E937793024EA26FD00107537 /* FSJCompressionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E937793224EA26FD00107537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E937793B24EA26FD00107537 /* FSJCompressionUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E937792D24EA26FD00107537 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E937790C24EA26FA00107537 /* FSJCompression */;
+			targetProxy = E937792C24EA26FD00107537 /* PBXContainerItemProxy */;
+		};
+		E937793824EA26FD00107537 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E937790C24EA26FA00107537 /* FSJCompression */;
+			targetProxy = E937793724EA26FD00107537 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E937791924EA26FA00107537 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E937791A24EA26FA00107537 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E937792124EA26FD00107537 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E937792224EA26FD00107537 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E937793D24EA26FD00107537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E937793E24EA26FD00107537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E937794024EA26FD00107537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9692FDFD13812EB9BE44FF0 /* Pods-FSJCompression.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 334V4U3KT6;
+				GCC_PREFIX_HEADER = FSJCompression/PrefixHeader.pch;
+				INFOPLIST_FILE = FSJCompression/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E937794124EA26FD00107537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60D55E6B3FC07D221C1BC910 /* Pods-FSJCompression.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 334V4U3KT6;
+				GCC_PREFIX_HEADER = FSJCompression/PrefixHeader.pch;
+				INFOPLIST_FILE = FSJCompression/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E937794324EA26FD00107537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEEA25E88C9FD29800FC4830 /* Pods-FSJCompressionTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FSJCompressionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FSJCompressionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FSJCompression.app/FSJCompression";
+			};
+			name = Debug;
+		};
+		E937794424EA26FD00107537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01A49A738AD35FAB6C55A804 /* Pods-FSJCompressionTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FSJCompressionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FSJCompressionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FSJCompression.app/FSJCompression";
+			};
+			name = Release;
+		};
+		E937794624EA26FD00107537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C81677887A7847AF7D0426A /* Pods-FSJCompression-FSJCompressionUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FSJCompressionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FSJCompressionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FSJCompression;
+			};
+			name = Debug;
+		};
+		E937794724EA26FD00107537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2385A1B4E1233FF137EE0BB6 /* Pods-FSJCompression-FSJCompressionUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FSJCompressionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FSJCompressionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FSJCompression;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E937790824EA26FA00107537 /* Build configuration list for PBXProject "FSJCompression" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E937793D24EA26FD00107537 /* Debug */,
+				E937793E24EA26FD00107537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E937793F24EA26FD00107537 /* Build configuration list for PBXNativeTarget "FSJCompression" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E937794024EA26FD00107537 /* Debug */,
+				E937794124EA26FD00107537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E937794224EA26FD00107537 /* Build configuration list for PBXNativeTarget "FSJCompressionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E937794324EA26FD00107537 /* Debug */,
+				E937794424EA26FD00107537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E937794524EA26FD00107537 /* Build configuration list for PBXNativeTarget "FSJCompressionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E937794624EA26FD00107537 /* Debug */,
+				E937794724EA26FD00107537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E937791C24EA26FA00107537 /* FSJCompression.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E937791D24EA26FA00107537 /* FSJCompression.xcdatamodel */,
+			);
+			currentVersion = E937791D24EA26FA00107537 /* FSJCompression.xcdatamodel */;
+			path = FSJCompression.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E937790524EA26FA00107537 /* Project object */;
+}
