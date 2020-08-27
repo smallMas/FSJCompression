@@ -41,7 +41,7 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
         }
         return;
     }
-    NSLog(@"===videoUrl.abs = %@, videoUrl.path = %@", videoUrl.absoluteString, videoUrl.path);
+    NSLog(@"压缩视频 : %@",videoUrl.path);
     NSInteger compressBiteRate = outputBiteRate ? [outputBiteRate integerValue] : 1500 * 1024;
     NSInteger compressFrameRate = outputFrameRate ? [outputFrameRate integerValue] : 30;
     NSInteger compressWidth = outputWidth ? [outputWidth integerValue] : 960;
@@ -69,10 +69,11 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     //压缩前原视频比特率
     NSInteger kbps = videoTrack.estimatedDataRate / 1024;
     //压缩前原视频帧率
-    NSInteger frameRate = [videoTrack nominalFrameRate];
-    NSLog(@"\noriginalVideo\nfileSize = %.2f MB,\n videoWidth = %ld,\n videoHeight = %ld,\n video bitRate = %ld\n, video frameRate = %ld", fileSizeMB, videoWidth, videoHeight, kbps, frameRate);
+//    NSInteger frameRate = [videoTrack nominalFrameRate];
+    NSLog(@"原视频大小 : %f videoWidth : %ld videoHeight : %ld",fileSizeMB,(long)videoWidth,(long)videoHeight);
     //原视频比特率小于指定比特率 不压缩 返回原视频
     if (kbps <= (compressBiteRate / 1024)) {
+        NSLog(@"原视频的比特率小于压缩的比特率，所以不压缩");
         if (compressComplete) {
             compressComplete(NO, videoUrl);
         }
@@ -86,7 +87,6 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
         NSString *outputUrlStr = [[cachesDir stringByAppendingPathComponent:@"videoTest"] stringByAppendingPathExtension:@"mp4"];
         outPutPathURL = [NSURL fileURLWithPath:outputUrlStr];
     }
-    NSLog(@"===压缩视频存放的指定路径%@===", outPutPathURL);
     
     //如果指定路径下已存在其他文件 先移除指定文件
     if ([[NSFileManager defaultManager] fileExistsAtPath:outPutPathURL.path]) {
@@ -190,13 +190,17 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
         if ([reader status] == AVAssetReaderStatusReading) {
             [reader cancelReading];
         }
-        NSLog(@"writer.status >>> %ld",(long)writer.status);
+        
         switch (writer.status) {
             case AVAssetWriterStatusWriting:
             {
                 if (progressBlock) {
                     progressBlock(1);
                 }
+                unsigned long long fileSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outPutPathURL.path error:nil].fileSize;
+                float fileSizeMB = fileSize / (1024.0*1024.0);
+                NSLog(@"视频压缩成功 大小 : %f %@",fileSizeMB,outPutPathURL);
+                
                 [writer finishWritingWithCompletionHandler:^{
                     if (compressComplete) {
                         compressComplete(YES, outPutPathURL);
@@ -207,13 +211,17 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
             case AVAssetWriterStatusCancelled:
                 break;
             case AVAssetWriterStatusFailed:
-                NSLog(@"===error：%@===", writer.error);
+                NSLog(@"压缩失败 : %@", writer.error);
                 break;
             case AVAssetWriterStatusCompleted:
             {
                 if (progressBlock) {
                     progressBlock(1);
                 }
+                
+                unsigned long long fileSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outPutPathURL.path error:nil].fileSize;
+                float fileSizeMB = fileSize / (1024.0*1024.0);
+                NSLog(@"视频压缩成功 大小 : %f %@",fileSizeMB,outPutPathURL);
                 
                 [writer finishWritingWithCompletionHandler:^{
                     if (compressComplete) {
