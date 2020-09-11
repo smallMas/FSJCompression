@@ -317,4 +317,217 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     return videoOutputSetting;
 }
 
+#pragma mark - 生成视频
++ (void)compressVideoWithVideoAsset:(AVURLAsset *)asset
+                          outputURL:(NSURL *)outputURL
+                       withBiteRate:(NSNumber * _Nullable)outputBiteRate
+                      withFrameRate:(NSNumber * _Nullable)outputFrameRate
+                     withVideoWidth:(NSNumber * _Nullable)outputWidth
+                    withVideoHeight:(NSNumber * _Nullable)outputHeight
+                          transform:(CGAffineTransform)transform
+                      progressBlock:(FSJCompressionProgressBlock)progressBlock
+                   compressComplete:(FSJCompressionCompleteBlock)compressComplete {
+    if (!asset) {
+        if (compressComplete) {
+            compressComplete(NO, nil);
+        }
+        return;
+    }
+    NSInteger compressBiteRate = outputBiteRate ? [outputBiteRate integerValue] : 1500 * 1024;
+    NSInteger compressFrameRate = outputFrameRate ? [outputFrameRate integerValue] : 30;
+    NSInteger compressWidth = outputWidth ? [outputWidth integerValue] : 960;
+    NSInteger compressHeight = outputHeight ? [outputHeight integerValue] : 540;
+    //视频时长 S
+    CMTime time = [asset duration];
+    NSInteger seconds = ceil(time.value/time.timescale);
+    if (seconds < 3) {
+        if (compressComplete) {
+            compressComplete(NO, nil);
+        }
+        return;
+    }
+    //取出asset中的视频文件
+    AVAssetTrack *videoTrack = [asset tracksWithMediaType:AVMediaTypeVideo].firstObject;
+    //压缩前原视频宽高
+    NSInteger videoWidth = videoTrack.naturalSize.width;
+    NSInteger videoHeight = videoTrack.naturalSize.height;
+    
+    //压缩前原视频比特率
+    NSInteger kbps = videoTrack.estimatedDataRate / 1024;
+    //原视频比特率小于指定比特率 不压缩 返回原视频
+    if (kbps <= (compressBiteRate / 1024)) {
+        NSLog(@"原视频的比特率小于压缩的比特率，所以不压缩");
+        if (compressComplete) {
+            compressComplete(NO, nil);
+        }
+        return;
+    }
+    //指定压缩视频沙盒根目录
+    NSURL *outPutPathURL = outputURL;
+    if (outPutPathURL == nil) {
+        NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+        //添加文件完整路径
+        NSString *outputUrlStr = [[cachesDir stringByAppendingPathComponent:@"videoTest"] stringByAppendingPathExtension:@"mp4"];
+        outPutPathURL = [NSURL fileURLWithPath:outputUrlStr];
+    }
+    
+    //如果指定路径下已存在其他文件 先移除指定文件
+    if ([[NSFileManager defaultManager] fileExistsAtPath:outPutPathURL.path]) {
+        BOOL removeSuccess =  [[NSFileManager defaultManager] removeItemAtPath:outPutPathURL.path error:nil];
+        if (!removeSuccess) {
+            if (compressComplete) {
+                compressComplete(NO, nil);
+            }
+            return;
+        }
+    }
+    //创建视频文件读取者
+    AVAssetReader *reader = [AVAssetReader assetReaderWithAsset:asset error:nil];
+    //从指定文件读取视频
+    AVAssetReaderTrackOutput *videoOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack outputSettings:[self configVideoOutput]];
+    //取出原视频中音频详细资料
+    AVAssetTrack *audioTrack = [asset tracksWithMediaType:AVMediaTypeAudio].firstObject;
+    //从音频资料中读取音频
+    AVAssetReaderTrackOutput *audioOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:audioTrack outputSettings:[self configAudioOutput]];
+    //将读取到的视频信息添加到读者队列中
+    if ([reader canAddOutput:videoOutput]) {
+        [reader addOutput:videoOutput];
+    }
+    //将读取到的音频信息添加到读者队列中
+    if ([reader canAddOutput:audioOutput]) {
+        [reader addOutput:audioOutput];
+    }
+    //视频文件写入者
+    AVAssetWriter *writer = [AVAssetWriter assetWriterWithURL:outPutPathURL fileType:AVFileTypeMPEG4 error:nil];
+    //根据指定配置创建写入的视频文件
+    AVAssetWriterInput *videoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:[self videoCompressSettingsWithBitRate:compressBiteRate withFrameRate:compressFrameRate withWidth:compressWidth WithHeight:compressHeight withOriginalWidth:videoWidth withOriginalHeight:videoHeight]];
+    // 视频方向
+    videoInput.transform = transform;//videoTrack.preferredTransform;
+    
+    //根据指定配置创建写入的音频文件
+    AVAssetWriterInput *audioInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeAudio outputSettings:[self audioCompressSettings]];
+    if ([writer canAddInput:videoInput]) {
+        [writer addInput:videoInput];
+    }
+    if ([writer canAddInput:audioInput]) {
+        [writer addInput:audioInput];
+    }
+    
+    [reader startReading];
+    [writer startWriting];
+    [writer startSessionAtSourceTime:kCMTimeZero];
+    //创建视频写入队列
+    dispatch_queue_t videoQueue = dispatch_queue_create("Video Queue", DISPATCH_QUEUE_SERIAL);
+    //创建音频写入队列
+    dispatch_queue_t audioQueue = dispatch_queue_create("Audio Queue", DISPATCH_QUEUE_SERIAL);
+    //创建一个线程组
+    dispatch_group_t group = dispatch_group_create();
+    //进入线程组
+    dispatch_group_enter(group);
+    
+    NSLog(@"开始压缩视频");
+    long long allTimeStamp = asset.duration.value;
+    CGFloat allSecond = (CGFloat)asset.duration.value / (CGFloat)asset.duration.timescale;
+    //队列准备好后 usingBlock
+    [videoInput requestMediaDataWhenReadyOnQueue:videoQueue usingBlock:^{
+        BOOL completedOrFailed = NO;
+        while ([videoInput isReadyForMoreMediaData] && !completedOrFailed) {
+            CMSampleBufferRef sampleBuffer = [videoOutput copyNextSampleBuffer];
+            if (sampleBuffer != NULL) {
+                [videoInput appendSampleBuffer:sampleBuffer];
+                
+                // 获取进度
+                CMTime timeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+                CGFloat second = (CGFloat)timeStamp.value / (CGFloat)timeStamp.timescale;
+                CGFloat progress = (CGFloat)second/(CGFloat)allSecond;
+                if (progressBlock) {
+                    progressBlock(progress);
+                }
+                
+                CFRelease(sampleBuffer);
+            } else {
+                completedOrFailed = YES;
+                [videoInput markAsFinished];
+                dispatch_group_leave(group);
+            }
+        }
+    }];
+    dispatch_group_enter(group);
+    //队列准备好后 usingBlock
+    [audioInput requestMediaDataWhenReadyOnQueue:audioQueue usingBlock:^{
+        BOOL completedOrFailed = NO;
+        while ([audioInput isReadyForMoreMediaData] && !completedOrFailed) {
+            CMSampleBufferRef sampleBuffer = [audioOutput copyNextSampleBuffer];
+            if (sampleBuffer != NULL) {
+                BOOL success = [audioInput appendSampleBuffer:sampleBuffer];
+                CFRelease(sampleBuffer);
+                completedOrFailed = !success;
+            } else {
+                completedOrFailed = YES;
+            }
+        }
+        if (completedOrFailed) {
+            [audioInput markAsFinished];
+            dispatch_group_leave(group);
+        }
+    }];
+    //完成压缩
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        if ([reader status] == AVAssetReaderStatusReading) {
+            [reader cancelReading];
+        }
+        
+        switch (writer.status) {
+            case AVAssetWriterStatusWriting:
+            {
+                if (progressBlock) {
+                    progressBlock(1);
+                }
+                unsigned long long fileSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outPutPathURL.path error:nil].fileSize;
+                float fileSizeMB = fileSize / (1024.0*1024.0);
+                NSLog(@"视频压缩成功 大小 : %f %@",fileSizeMB,outPutPathURL);
+                
+                [writer finishWritingWithCompletionHandler:^{
+                    if (compressComplete) {
+                        compressComplete(YES, outPutPathURL);
+                    }
+                }];
+            }
+                break;
+            case AVAssetWriterStatusCancelled:
+                break;
+            case AVAssetWriterStatusFailed:
+                NSLog(@"压缩失败 : %@", writer.error);
+                break;
+            case AVAssetWriterStatusCompleted:
+            {
+                if (progressBlock) {
+                    progressBlock(1);
+                }
+                
+                unsigned long long fileSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outPutPathURL.path error:nil].fileSize;
+                float fileSizeMB = fileSize / (1024.0*1024.0);
+                NSLog(@"视频压缩成功 大小 : %f %@",fileSizeMB,outPutPathURL);
+                
+                [writer finishWritingWithCompletionHandler:^{
+                    if (compressComplete) {
+                        compressComplete(YES, outPutPathURL);
+                    }
+                }];
+            }
+                break;
+            default:
+                break;
+        }
+    });
+}
+
++ (void)compressVideoWithVideoAsset:(AVURLAsset *)asset
+                          outputURL:(NSURL *)outputURL
+                          transform:(CGAffineTransform)transform
+                      progressBlock:(FSJCompressionProgressBlock)progressBlock
+                   compressComplete:(FSJCompressionCompleteBlock)compressComplete {
+    [self compressVideoWithVideoAsset:asset outputURL:outputURL withBiteRate:nil withFrameRate:nil withVideoWidth:nil withVideoHeight:nil transform:transform progressBlock:progressBlock compressComplete:compressComplete];
+}
+
 @end

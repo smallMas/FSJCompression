@@ -26,6 +26,7 @@
 		E937795D24EA2AEE00107537 /* FSVideoImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E937795C24EA2AEE00107537 /* FSVideoImageTool.m */; };
 		E937796024EA2B3200107537 /* FSPathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E937795F24EA2B3200107537 /* FSPathTool.m */; };
 		E937796224EA2D0500107537 /* FSJCompression.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E937796124EA2D0500107537 /* FSJCompression.podspec */; };
+		E9772A2125020F570043339C /* FSJCompressionImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E9772A2025020F570043339C /* FSJCompressionImageTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +86,9 @@
 		E937795C24EA2AEE00107537 /* FSVideoImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVideoImageTool.m; sourceTree = "<group>"; };
 		E937795E24EA2B3200107537 /* FSPathTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPathTool.h; sourceTree = "<group>"; };
 		E937795F24EA2B3200107537 /* FSPathTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPathTool.m; sourceTree = "<group>"; };
-		E937796124EA2D0500107537 /* FSJCompression.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = FSJCompression.podspec; sourceTree = SOURCE_ROOT; };
+		E937796124EA2D0500107537 /* FSJCompression.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FSJCompression.podspec; sourceTree = SOURCE_ROOT; };
+		E9772A1F25020F570043339C /* FSJCompressionImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSJCompressionImageTool.h; sourceTree = "<group>"; };
+		E9772A2025020F570043339C /* FSJCompressionImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSJCompressionImageTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 				E937795124EA284400107537 /* FSJCompressionVideoTool.m */,
 				E937795324EA286F00107537 /* FSJCompressionBlockHeader.h */,
 				E937795924EA2A6F00107537 /* FSJCompression.h */,
+				E9772A1F25020F570043339C /* FSJCompressionImageTool.h */,
+				E9772A2025020F570043339C /* FSJCompressionImageTool.m */,
 			);
 			path = Libs;
 			sourceTree = SOURCE_ROOT;
@@ -486,6 +491,7 @@
 				E937795224EA284400107537 /* FSJCompressionVideoTool.m in Sources */,
 				E937795724EA294600107537 /* FSJMainViewController.m in Sources */,
 				E937792624EA26FD00107537 /* main.m in Sources */,
+				E9772A2125020F570043339C /* FSJCompressionImageTool.m in Sources */,
 				E937796024EA2B3200107537 /* FSPathTool.m in Sources */,
 				E937795D24EA2AEE00107537 /* FSVideoImageTool.m in Sources */,
 				E937791E24EA26FA00107537 /* FSJCompression.xcdatamodeld in Sources */,
