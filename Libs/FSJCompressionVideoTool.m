@@ -100,20 +100,28 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     }
     //创建视频文件读取者
     AVAssetReader *reader = [AVAssetReader assetReaderWithAsset:asset error:nil];
-    //从指定文件读取视频
-    AVAssetReaderTrackOutput *videoOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack outputSettings:[self configVideoOutput]];
+    AVAssetReaderTrackOutput *videoOutput = nil;
+    if (videoTrack) {
+        //从指定文件读取视频
+        videoOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack outputSettings:[self configVideoOutput]];
+        //将读取到的视频信息添加到读者队列中
+        if ([reader canAddOutput:videoOutput]) {
+            [reader addOutput:videoOutput];
+        }
+    }
+    
     //取出原视频中音频详细资料
     AVAssetTrack *audioTrack = [asset tracksWithMediaType:AVMediaTypeAudio].firstObject;
-    //从音频资料中读取音频
-    AVAssetReaderTrackOutput *audioOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:audioTrack outputSettings:[self configAudioOutput]];
-    //将读取到的视频信息添加到读者队列中
-    if ([reader canAddOutput:videoOutput]) {
-        [reader addOutput:videoOutput];
+    AVAssetReaderTrackOutput *audioOutput = nil;
+    if (audioTrack) {
+        //从音频资料中读取音频
+        audioOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:audioTrack outputSettings:[self configAudioOutput]];
+        //将读取到的音频信息添加到读者队列中
+        if ([reader canAddOutput:audioOutput]) {
+            [reader addOutput:audioOutput];
+        }
     }
-    //将读取到的音频信息添加到读者队列中
-    if ([reader canAddOutput:audioOutput]) {
-        [reader addOutput:audioOutput];
-    }
+    
     //视频文件写入者
     AVAssetWriter *writer = [AVAssetWriter assetWriterWithURL:outPutPathURL fileType:AVFileTypeMPEG4 error:nil];
     //根据指定配置创建写入的视频文件
@@ -383,20 +391,28 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     }
     //创建视频文件读取者
     AVAssetReader *reader = [AVAssetReader assetReaderWithAsset:asset error:nil];
-    //从指定文件读取视频
-    AVAssetReaderTrackOutput *videoOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack outputSettings:[self configVideoOutput]];
+    AVAssetReaderTrackOutput *videoOutput = nil;
+    if (videoTrack) {
+        //从指定文件读取视频
+        videoOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:videoTrack outputSettings:[self configVideoOutput]];
+        //将读取到的视频信息添加到读者队列中
+        if ([reader canAddOutput:videoOutput]) {
+            [reader addOutput:videoOutput];
+        }
+    }
+    
     //取出原视频中音频详细资料
     AVAssetTrack *audioTrack = [asset tracksWithMediaType:AVMediaTypeAudio].firstObject;
-    //从音频资料中读取音频
-    AVAssetReaderTrackOutput *audioOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:audioTrack outputSettings:[self configAudioOutput]];
-    //将读取到的视频信息添加到读者队列中
-    if ([reader canAddOutput:videoOutput]) {
-        [reader addOutput:videoOutput];
+    AVAssetReaderTrackOutput *audioOutput = nil;
+    if (audioTrack) {
+        //从音频资料中读取音频
+        audioOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:audioTrack outputSettings:[self configAudioOutput]];
+        //将读取到的音频信息添加到读者队列中
+        if ([reader canAddOutput:audioOutput]) {
+            [reader addOutput:audioOutput];
+        }
     }
-    //将读取到的音频信息添加到读者队列中
-    if ([reader canAddOutput:audioOutput]) {
-        [reader addOutput:audioOutput];
-    }
+    
     //视频文件写入者
     AVAssetWriter *writer = [AVAssetWriter assetWriterWithURL:outPutPathURL fileType:AVFileTypeMPEG4 error:nil];
     //根据指定配置创建写入的视频文件
@@ -426,7 +442,6 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     dispatch_group_enter(group);
     
     NSLog(@"开始压缩视频");
-    long long allTimeStamp = asset.duration.value;
     CGFloat allSecond = (CGFloat)asset.duration.value / (CGFloat)asset.duration.timescale;
     //队列准备好后 usingBlock
     [videoInput requestMediaDataWhenReadyOnQueue:videoQueue usingBlock:^{

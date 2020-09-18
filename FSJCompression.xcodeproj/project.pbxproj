@@ -667,14 +667,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 334V4U3KT6;
+				DEVELOPMENT_TEAM = DE2G8ZL556;
 				GCC_PREFIX_HEADER = FSJCompression/PrefixHeader.pch;
 				INFOPLIST_FILE = FSJCompression/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shengba.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -693,7 +693,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dnaer.english;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shengba.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
