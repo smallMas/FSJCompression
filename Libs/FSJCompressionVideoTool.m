@@ -280,7 +280,7 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
         return compressSetting;
     }else {
         NSDictionary *compressSetting = @{
-                                          AVVideoCodecKey : AVVideoCodecTypeH264,
+                                          AVVideoCodecKey : AVVideoCodecH264,
                                           AVVideoWidthKey : @(returnWidth),
                                           AVVideoHeightKey : @(returnHeight),
                                           AVVideoCompressionPropertiesKey : compressProperties,
