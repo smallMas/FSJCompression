@@ -155,22 +155,24 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     [videoInput requestMediaDataWhenReadyOnQueue:videoQueue usingBlock:^{
         BOOL completedOrFailed = NO;
         while ([videoInput isReadyForMoreMediaData] && !completedOrFailed) {
-            CMSampleBufferRef sampleBuffer = [videoOutput copyNextSampleBuffer];
-            if (sampleBuffer != NULL) {
-                [videoInput appendSampleBuffer:sampleBuffer];
-                
-                // 获取进度
-                CMTime timeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
-                CGFloat progress = (CGFloat)timeStamp.value/(CGFloat)allTimeStamp;
-                if (progressBlock) {
-                    progressBlock(progress);
+            @autoreleasepool {
+                CMSampleBufferRef sampleBuffer = [videoOutput copyNextSampleBuffer];
+                if (sampleBuffer != NULL) {
+                    [videoInput appendSampleBuffer:sampleBuffer];
+                    
+                    // 获取进度
+                    CMTime timeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+                    CGFloat progress = (CGFloat)timeStamp.value/(CGFloat)allTimeStamp;
+                    if (progressBlock) {
+                        progressBlock(progress);
+                    }
+                    
+                    CFRelease(sampleBuffer);
+                } else {
+                    completedOrFailed = YES;
+                    [videoInput markAsFinished];
+                    dispatch_group_leave(group);
                 }
-                
-                CFRelease(sampleBuffer);
-            } else {
-                completedOrFailed = YES;
-                [videoInput markAsFinished];
-                dispatch_group_leave(group);
             }
         }
     }];
@@ -179,13 +181,15 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     [audioInput requestMediaDataWhenReadyOnQueue:audioQueue usingBlock:^{
         BOOL completedOrFailed = NO;
         while ([audioInput isReadyForMoreMediaData] && !completedOrFailed) {
-            CMSampleBufferRef sampleBuffer = [audioOutput copyNextSampleBuffer];
-            if (sampleBuffer != NULL) {
-                BOOL success = [audioInput appendSampleBuffer:sampleBuffer];
-                CFRelease(sampleBuffer);
-                completedOrFailed = !success;
-            } else {
-                completedOrFailed = YES;
+            @autoreleasepool {
+                CMSampleBufferRef sampleBuffer = [audioOutput copyNextSampleBuffer];
+                if (sampleBuffer != NULL) {
+                    BOOL success = [audioInput appendSampleBuffer:sampleBuffer];
+                    CFRelease(sampleBuffer);
+                    completedOrFailed = !success;
+                } else {
+                    completedOrFailed = YES;
+                }
             }
         }
         if (completedOrFailed) {
@@ -447,23 +451,25 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     [videoInput requestMediaDataWhenReadyOnQueue:videoQueue usingBlock:^{
         BOOL completedOrFailed = NO;
         while ([videoInput isReadyForMoreMediaData] && !completedOrFailed) {
-            CMSampleBufferRef sampleBuffer = [videoOutput copyNextSampleBuffer];
-            if (sampleBuffer != NULL) {
-                [videoInput appendSampleBuffer:sampleBuffer];
-                
-                // 获取进度
-                CMTime timeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
-                CGFloat second = (CGFloat)timeStamp.value / (CGFloat)timeStamp.timescale;
-                CGFloat progress = (CGFloat)second/(CGFloat)allSecond;
-                if (progressBlock) {
-                    progressBlock(progress);
+            @autoreleasepool {
+                CMSampleBufferRef sampleBuffer = [videoOutput copyNextSampleBuffer];
+                if (sampleBuffer != NULL) {
+                    [videoInput appendSampleBuffer:sampleBuffer];
+                    
+                    // 获取进度
+                    CMTime timeStamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
+                    CGFloat second = (CGFloat)timeStamp.value / (CGFloat)timeStamp.timescale;
+                    CGFloat progress = (CGFloat)second/(CGFloat)allSecond;
+                    if (progressBlock) {
+                        progressBlock(progress);
+                    }
+                    
+                    CFRelease(sampleBuffer);
+                } else {
+                    completedOrFailed = YES;
+                    [videoInput markAsFinished];
+                    dispatch_group_leave(group);
                 }
-                
-                CFRelease(sampleBuffer);
-            } else {
-                completedOrFailed = YES;
-                [videoInput markAsFinished];
-                dispatch_group_leave(group);
             }
         }
     }];
@@ -472,13 +478,15 @@ https://github.com/BMWMWM/iOS-AVFoundation-VideoCustomComPressed/blob/master/AVF
     [audioInput requestMediaDataWhenReadyOnQueue:audioQueue usingBlock:^{
         BOOL completedOrFailed = NO;
         while ([audioInput isReadyForMoreMediaData] && !completedOrFailed) {
-            CMSampleBufferRef sampleBuffer = [audioOutput copyNextSampleBuffer];
-            if (sampleBuffer != NULL) {
-                BOOL success = [audioInput appendSampleBuffer:sampleBuffer];
-                CFRelease(sampleBuffer);
-                completedOrFailed = !success;
-            } else {
-                completedOrFailed = YES;
+            @autoreleasepool {
+                CMSampleBufferRef sampleBuffer = [audioOutput copyNextSampleBuffer];
+                if (sampleBuffer != NULL) {
+                    BOOL success = [audioInput appendSampleBuffer:sampleBuffer];
+                    CFRelease(sampleBuffer);
+                    completedOrFailed = !success;
+                } else {
+                    completedOrFailed = YES;
+                }
             }
         }
         if (completedOrFailed) {
